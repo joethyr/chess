@@ -15,4 +15,10 @@ class Board
     row, column = coordinate
     grid[row][column] = piece
   end
+
+  # gets the grid position value with use of coordinate
+  def [](coordinate)
+    row, column = coordinate
+    grid[row][column]
+  end
 end
