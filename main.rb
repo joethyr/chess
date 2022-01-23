@@ -1,7 +1,8 @@
 require_relative './lib/board'
+require_relative './lib/pawn'
+require_relative './lib/rook'
 
-board = Board.new
-puts board.within_bounds?([-1, 0])
-puts board.within_bounds?([1, 0])
-puts board.within_bounds?([1, 1])
-puts board.within_bounds?([5, 5])
+pawn = Pawn.new([0, 0], :white)
+p pawn.to_s
+pawn = Pawn.new([0, 0], :black)
+p pawn.to_s
