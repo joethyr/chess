@@ -1,13 +1,12 @@
 class Pawn
   attr_reader :color
 
-  def initialize(coordinate, color)
-    @coordinate = coordinate
+  def initialize(color)
     @color = color
   end
 
   def to_s
-    color == :white ? '♟' : '♙'
+    color == :white ? '♙' : '♟'
   end
 
   def move_directions
@@ -19,14 +18,6 @@ class Pawn
   def starting_move
     if row == 1 || row == 7
     end
-  end
-
-  def row
-    @coordinate.first
-  end
-
-  def column
-    @coordinate.last
   end
 end
 
