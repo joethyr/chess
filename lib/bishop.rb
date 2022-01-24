@@ -18,3 +18,7 @@ class Bishop
     ]
   end
 end
+
+# piece move
+# move diagonally any number of squares
+# unable to jump over pieces

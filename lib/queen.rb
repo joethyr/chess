@@ -23,6 +23,6 @@ class Queen
   end
 end
 
-# piece moves
+# piece moves0
 # move diagonally, vertically, or horizontally any number of squares.
 # unable to jump over pieces
