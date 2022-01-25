@@ -1,10 +1,4 @@
-class Pawn
-  attr_reader :color
-
-  def initialize(color)
-    @color = color
-  end
-
+class Pawn < Piece
   def to_s
     color == :white ? '♙' : '♟'
   end
