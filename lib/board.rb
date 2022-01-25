@@ -1,13 +1,37 @@
+require_relative 'bishop'
+require_relative 'king'
+require_relative 'knight'
+require_relative 'pawn'
+require_relative 'queen'
+require_relative 'rook'
+
 class Board
   attr_reader :grid
 
+  def self.setup_pieces
+    board = new
+    8.times do |col|
+      board[[1, col]] = Pawn.new(:black)
+      board[[6, col]] = Pawn.new(:white)
+    end
+    [[0, :black], [7, :white]].each do |row, color|
+      board[[row, 0]] = Rook.new(color)
+      board[[row, 7]] = Rook.new(color)
+      board[[row, 1]] = Knight.new(color)
+      board[[row, 6]] = Knight.new(color)
+      board[[row, 2]] = Bishop.new(color)
+      board[[row, 5]] = Bishop.new(color)
+    end
+    board[[0, 3]] = King.new(:black)
+    board[[7, 3]] = King.new(:white)
+    board[[0, 4]] = Queen.new(:black)
+    board[[7, 4]] = Queen.new(:white)
+
+    board
+  end
+
   def initialize
-    @grid = [
-      ['x', 'x', 'x', 'x'],
-      ['x', 'x', 'x', 'x'],
-      ['x', 'x', 'x', 'x'],
-      ['x', 'x', 'x', 'x']
-    ]
+    @grid = Array.new(8) { Array.new(8) { ' ' } }
   end
 
   # sets the piece on the grid with use of coordinate
