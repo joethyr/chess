@@ -5,6 +5,10 @@ class Rook
     @color = color
   end
 
+  def to_s
+    color == :white ? '♖' : '♜'
+  end
+
   def move_directions
     [
       [0, 1],
