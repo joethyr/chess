@@ -1,12 +1,9 @@
-require_relative 'bishop'
-require_relative 'king'
-require_relative 'knight'
-require_relative 'pawn'
-require_relative 'queen'
-require_relative 'rook'
-
 class Board
   attr_reader :grid
+
+  def initialize
+    @grid = Array.new(8) { Array.new(8) }
+  end
 
   def self.setup_pieces
     board = new
@@ -30,10 +27,6 @@ class Board
     board
   end
 
-  def initialize
-    @grid = Array.new(8) { Array.new(8) { ' ' } }
-  end
-
   # sets the piece on the grid with use of coordinate
   def []=(coordinate, piece)
     row, column = coordinate
@@ -54,5 +47,10 @@ class Board
       column < grid[0].length &&
       row >= 0 &&
       column >= 0
+  end
+
+  def empty?(coordinate)
+    row, column = coordinate
+    grid[row][column].nil?
   end
 end
