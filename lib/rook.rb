@@ -1,4 +1,6 @@
 class Rook < Piece
+  include Movable
+
   def to_s
     color == :white ? '♖' : '♜'
   end
