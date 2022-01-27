@@ -20,6 +20,7 @@ class Pawn < Piece
     moves = []
 
     move_foward(moves)
+    move_diagonal(moves)
   end
 
   def move_foward(moves)
@@ -30,6 +31,16 @@ class Pawn < Piece
     # if on the start line, move forward 2
     two_forward = [current_row + (forward_direction * 2), current_column]
     moves << two_forward if board.empty?(two_forward) && board.empty?(one_forward) && start_point?
+  end
+
+  def move_diagonal(moves)
+    diagonal_left = [current_row + forward_direction, current_column + 1]
+    diagonal_right = [current_row + forward_direction, current_column - 1]
+    moves << diagonal_left if opponent?(diagonal_left)
+
+    moves << diagonal_right if opponent?(diagonal_right)
+
+    moves.select { |coord| board.within_bounds?(coord) }
   end
 
   def to_s
