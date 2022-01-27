@@ -5,4 +5,4 @@ require_relative './lib/player'
 
 b = Board.new
 b[[0, 0]] = Rook.new(b, :black, [0, 0])
-p b[[0, 0]].slide_move
+p b[[0, 0]].available_moves

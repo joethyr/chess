@@ -1,4 +1,5 @@
 class Queen < Piece
+  include Slidable
 
   def to_s
     color == :white ? '♕' : '♛'

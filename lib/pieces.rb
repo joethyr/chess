@@ -1,4 +1,4 @@
-require_relative 'movable'
+require_relative 'slidable'
 require_relative 'piece'
 require_relative 'bishop'
 require_relative 'king'

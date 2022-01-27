@@ -1,5 +1,5 @@
 class Rook < Piece
-  include Movable
+  include Slidable
 
   def to_s
     color == :white ? '♖' : '♜'

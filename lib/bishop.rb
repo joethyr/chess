@@ -1,4 +1,5 @@
 class Bishop < Piece
+  include Slidable
 
   def to_s
     color == :white ? '♗' : '♝'
