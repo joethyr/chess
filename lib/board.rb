@@ -8,21 +8,21 @@ class Board
   def self.setup_pieces
     board = new
     8.times do |col|
-      board[[1, col]] = Pawn.new(:black)
-      board[[6, col]] = Pawn.new(:white)
+      board[[1, col]] = Pawn.new(self, :black, [1, col])
+      board[[6, col]] = Pawn.new(self, :white, [6, col])
     end
     [[0, :black], [7, :white]].each do |row, color|
-      board[[row, 0]] = Rook.new(color)
-      board[[row, 7]] = Rook.new(color)
-      board[[row, 1]] = Knight.new(color)
-      board[[row, 6]] = Knight.new(color)
-      board[[row, 2]] = Bishop.new(color)
-      board[[row, 5]] = Bishop.new(color)
+      board[[row, 0]] = Rook.new(self, color, [row, 0])
+      board[[row, 7]] = Rook.new(self, color, [row, 7])
+      board[[row, 1]] = Knight.new(self, color, [row, 1])
+      board[[row, 6]] = Knight.new(self, color, [row, 6])
+      board[[row, 2]] = Bishop.new(self, color, [row, 2])
+      board[[row, 5]] = Bishop.new(self, color, [row, 5])
     end
-    board[[0, 3]] = King.new(:black)
-    board[[7, 3]] = King.new(:white)
-    board[[0, 4]] = Queen.new(:black)
-    board[[7, 4]] = Queen.new(:white)
+    board[[0, 3]] = King.new(self, :black, [0, 3])
+    board[[7, 3]] = King.new(self, :white, [7, 3])
+    board[[0, 4]] = Queen.new(self, :black, [0, 4])
+    board[[7, 4]] = Queen.new(self, :white, [7, 4])
 
     board
   end
