@@ -12,7 +12,9 @@ class Pawn < Piece
     color == :black && current_row == 1 || color == :white && current_row == 6
   end
 
-
+  def forward_direction
+    color == :black ? 1 : -1
+  end
 
   def available_moves
     moves = []
