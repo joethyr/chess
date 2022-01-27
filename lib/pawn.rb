@@ -19,7 +19,17 @@ class Pawn < Piece
   def available_moves
     moves = []
 
-    if board[]
+    move_foward(moves)
+  end
+
+  def move_foward(moves)
+    # move forward 1
+    one_forward = [current_row + forward_direction, current_column]
+    moves << one_forward if board.empty?(one_forward)
+
+    # if on the start line, move forward 2
+    two_forward = [current_row + (forward_direction * 2), current_column]
+    moves << two_forward if board.empty?(two_forward) && board.empty?(one_forward) && start_point?
   end
 
   def to_s
