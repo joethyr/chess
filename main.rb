@@ -3,6 +3,14 @@ require_relative './lib/board'
 require_relative './lib/board_render_text'
 require_relative './lib/player'
 
-b = Board.new
-b[[0, 0]] = King.new(b, :black, [0, 0])
-p b[[0, 0]].available_moves
+b = Board.setup_pieces
+display = BoardRenderText.new(b)
+
+b[[2, 2]] = Pawn.new(b, :white, [2, 2])
+b[[2, 0]] = Pawn.new(b, :white, [2, 0])
+p b[[1, 1]].available_moves
+puts display.render
+
+# b = Board.setup_pieces
+# display = BoardRenderText.new(b)
+# puts display.render
