@@ -53,4 +53,12 @@ class Board
     row, column = coordinate
     grid[row][column].nil?
   end
+
+  def move_piece(start_position, end_position)
+    # validate that 'end_position is in available moves'
+    piece = self[start_position]
+    unless piece.available_moves.include?(end_position)
+      raise "End position #{end_position} is not an available move."
+    end
+  end
 end
