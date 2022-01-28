@@ -60,5 +60,8 @@ class Board
     unless piece.available_moves.include?(end_position)
       raise "End position #{end_position} is not an available move."
     end
+
+    # validate that 'end_position is within board bounds.'
+    raise 'End position not within board bounds.' unless within_bounds?(end_position)
   end
 end
