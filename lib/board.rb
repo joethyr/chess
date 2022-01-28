@@ -63,5 +63,14 @@ class Board
 
     # validate that 'end_position is within board bounds.'
     raise 'End position not within board bounds.' unless within_bounds?(end_position)
+
+    # remove piece from the board at the start position
+    self[start_position] = nil
+
+    # place the piece on the board at the new location
+    self[end_position] = piece
+
+    # update the piece's internal location with end position
+    piece.coordinate = end_position
   end
 end
