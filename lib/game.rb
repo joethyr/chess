@@ -13,6 +13,13 @@ class Game
   end
 
   def play
+    puts "It's color #{current_player.color}'s turn."
+    puts "Enter a piece to move:"
+    start_position = get_position
+    p start_position
+    puts "Enter a position to move to:"
+    end_position = get_position
+    p end_position
   end
 
   def get_position
