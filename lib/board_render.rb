@@ -1,6 +1,6 @@
 # responsible for rendering the board as text.
 class BoardRender
-  attr_reader :board
+  attr_accessor :board
 
   def initialize(board)
     @board = board
@@ -14,7 +14,7 @@ class BoardRender
         if piece.nil?
           print ' '
         else
-        print "#{board[[row, column]]} "
+          print "#{board[[row, column]]} "
         end
       end
       puts ''
