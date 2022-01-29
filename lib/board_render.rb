@@ -1,5 +1,5 @@
 # responsible for rendering the board as text.
-class BoardRenderText
+class BoardRender
   attr_reader :board
 
   def initialize(board)
