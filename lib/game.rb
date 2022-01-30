@@ -17,6 +17,10 @@ class Game
   def play
     renderer.render
     puts "It's color #{current_player.color}'s turn."
+    player_turn
+  end
+
+  def player_turn
     start_position = nil
     # prompt current player to enter start position
     loop do
