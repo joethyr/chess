@@ -17,15 +17,16 @@ class Game
   def play
     renderer.render
     puts "It's color #{current_player.color}'s turn."
+    start_position = nil
+    # prompt current player to enter start position
     loop do
       puts "Enter a piece to move:"
       start_position = get_position
-      if board[start_position].color == current_player.color
-        break
-      end
-      puts "did not select a #{current_player.color} piece."
-      p start_position
+      break if !board[start_position].nil? && board[start_position].color == current_player.color
+
+      puts "You did not select a #{current_player.color} piece."
     end
+    # prompt current player to enter end position
     puts "Enter a position to move to:"
     end_position = get_position
     p end_position
