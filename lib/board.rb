@@ -58,11 +58,11 @@ class Board
     # validate that 'end_position is in available moves'
     piece = self[start_position]
     unless piece.available_moves.include?(end_position)
-      raise InvalidMoveError.new("End position #{end_position} is not an available move.")
+      raise InvalidMoveError.new("Position #{end_position} is not an available move.")
     end
 
     # validate that 'end_position is within board bounds.'
-    raise InvalidMoveError.new('End position not within board bounds.') unless within_bounds?(end_position)
+    raise InvalidMoveError.new('Position not within board bounds.') unless within_bounds?(end_position)
 
     # remove piece from the board at the start position
     self[start_position] = nil
