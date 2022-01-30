@@ -1,3 +1,2 @@
-class InvalidMoveError < Argument
-
+class InvalidMoveError < ArgumentError
 end
