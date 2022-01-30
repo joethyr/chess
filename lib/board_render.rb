@@ -12,12 +12,13 @@ class BoardRender
       8.times do |column|
         piece = board[[row, column]]
         if piece.nil?
-          print ' '
+          print '  '
         else
           print "#{board[[row, column]]} "
         end
       end
       puts ''
     end
+    puts '- - - - - - - -'
   end
 end
