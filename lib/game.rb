@@ -27,9 +27,18 @@ class Game
       puts "You did not select a #{current_player.color} piece."
     end
     # prompt current player to enter end position
-    puts "Enter a position to move to:"
-    end_position = get_position
-    p end_position
+    loop do
+      puts "Enter a position to move to:"
+      end_position = get_position
+
+      # move the piece
+      begin
+        board.move_piece(start_position, end_position)
+        break
+      rescue InvalidMoveError => e
+        puts e.message
+      end
+    end
   end
 
   def get_position
