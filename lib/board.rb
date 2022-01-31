@@ -63,12 +63,12 @@ class Board
   def checkmate?(color)
     return false unless check?(color)
 
-    color_pieces = pieces.select { |i| i.color == color}
-    color_pieces.any? { |piece| piece.safe_moves.empty?}
+    color_pieces = pieces.select { |i| i.color == color }
+    color_pieces.any? { |piece| piece.safe_moves.empty? }
   end
 
   def pieces
-    grid.flatten.reject { |piece| piece.nil? }
+    grid.flatten.reject(&:nil?)
   end
 
   def empty?(coordinate)
