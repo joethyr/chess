@@ -49,6 +49,21 @@ class Board
       column >= 0
   end
 
+  def check?(color)
+    king = pieces.find { |i| i.color == color && i.is_a?(King) }
+    raise "No King found." if king.nil?
+
+    king_position = king.coordinate
+    pieces.select { |i| i.color != color }.each do |piece|
+      return true if piece.available_moves.include?(king_position)
+    end
+    false
+  end
+
+  def pieces
+    grid.flatten.reject { |piece| piece.nil? }
+  end
+
   def empty?(coordinate)
     row, column = coordinate
     grid[row][column].nil?
