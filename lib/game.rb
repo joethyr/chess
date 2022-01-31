@@ -18,9 +18,14 @@ class Game
     until over?
       renderer.render
       puts "It's color #{current_player.color}'s turn."
+      player_in_check?
       player_turn
       switch_current_player
     end
+  end
+
+  def player_in_check?
+    puts "#{current_player.color} is in check." if board.check?(current_player.color)
   end
 
   def over?
