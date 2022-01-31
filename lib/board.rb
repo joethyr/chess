@@ -23,7 +23,6 @@ class Board
     board[[7, 3]] = King.new(board, :white, [7, 3])
     board[[0, 4]] = Queen.new(board, :black, [0, 4])
     board[[7, 4]] = Queen.new(board, :white, [7, 4])
-
     board
   end
 
@@ -42,7 +41,6 @@ class Board
   # checks if coordinate is within bounds
   def within_bounds?(coordinate)
     row, column = coordinate
-
     row < grid.length &&
       column < grid[0].length &&
       row >= 0 &&

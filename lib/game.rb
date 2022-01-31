@@ -17,7 +17,6 @@ class Game
   def introduction
     puts "Lets play a game of Chess!"
     puts "#{current_player.color} will start game."
-
   end
 
   def play
