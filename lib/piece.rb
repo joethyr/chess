@@ -20,14 +20,12 @@ class Piece
     coordinate.last
   end
 
-
   def safe_moves
     moves = []
     available_moves.each do |move|
       new_board = board.duplicate
       new_board.move_piece(coordinate, move)
-      if !new_board.check?(color)
-        moves << move
+      moves << move unless new_board.check?(color)
     end
     moves
   end
