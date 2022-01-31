@@ -15,7 +15,7 @@ class Game
   end
 
   def play
-    while !over?
+    until over?
       renderer.render
       puts "It's color #{current_player.color}'s turn."
       player_turn
@@ -24,7 +24,7 @@ class Game
   end
 
   def over?
-    false
+    board.checkmate?(current_player.color)
   end
 
   def player_turn
