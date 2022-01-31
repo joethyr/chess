@@ -55,7 +55,6 @@ class Board
 
     king_position = king.coordinate
     pieces.select { |i| i.color != color }.each do |piece|
-
       return true if piece.available_moves.include?(king_position)
     end
     false
@@ -80,16 +79,17 @@ class Board
     unless piece.available_moves.include?(end_position)
       raise InvalidMoveError.new("Position #{end_position} is not an available move.")
     end
-
     # validate that 'end_position is within board bounds.'
     raise InvalidMoveError.new('Position not within board bounds.') unless within_bounds?(end_position)
 
+    move_piece!(start_position, end_position)
+  end
+
+  def move_piece!(start_position, end_position)
     # remove piece from the board at the start position
     self[start_position] = nil
-
     # place the piece on the board at the new location
     self[end_position] = piece
-
     # update the piece's internal location with end position
     piece.coordinate = end_position
   end
@@ -98,7 +98,7 @@ class Board
     new_board = Board.new
     pieces.each do |piece|
       new_piece = piece.class.new(new_board, piece.color, piece.coordinate)
-      new_board[pieces.coordinate] = new_piece
+      new_board[new_piece.coordinate] = new_piece
     end
     new_board
   end
