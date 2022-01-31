@@ -87,9 +87,8 @@ class Board
 
   def move_piece!(start_position, end_position)
     # remove piece from the board at the start position
-    self[start_position] = nil
     # place the piece on the board at the new location
-    self[end_position] = piece
+    self[start_position], self[end_position] = nil, self[start_position]
     # update the piece's internal location with end position
     piece.coordinate = end_position
   end
