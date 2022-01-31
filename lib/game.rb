@@ -22,6 +22,7 @@ class Game
       player_turn
       switch_current_player
     end
+    finish
   end
 
   def player_in_check?
@@ -30,6 +31,11 @@ class Game
 
   def over?
     board.checkmate?(current_player.color)
+  end
+
+  def finish
+    switch_current_player
+    puts "#{current_player.color} is the winner! Game Over"
   end
 
   def player_turn
