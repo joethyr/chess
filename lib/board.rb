@@ -90,7 +90,7 @@ class Board
     # place the piece on the board at the new location
     self[start_position], self[end_position] = nil, self[start_position]
     # update the piece's internal location with end position
-    piece.coordinate = end_position
+    self[end_position].coordinate = end_position
   end
 
   def duplicate
