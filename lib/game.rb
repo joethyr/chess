@@ -6,7 +6,7 @@ class Game
     @player1 = player1
     @player2 = player2
     @board = Board.setup_pieces
-    @current_player = @player1
+    @current_player = [player1, player2].sample
     @renderer = BoardRender.new(board)
   end
 
@@ -14,7 +14,14 @@ class Game
     self.current_player = (current_player == player1 ? player2 : player1)
   end
 
+  def introduction
+    puts "Lets play a game of Chess!"
+    puts "#{current_player.color} will start game."
+
+  end
+
   def play
+    introduction
     until over?
       renderer.render
       puts "It's color #{current_player.color}'s turn."
