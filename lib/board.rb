@@ -79,7 +79,7 @@ class Board
   def move_piece(start_position, end_position)
     # validate that 'end_position is in available moves'
     piece = self[start_position]
-    unless piece.available_moves.include?(end_position)
+    unless piece.safe_moves.include?(end_position)
       raise InvalidMoveError.new("Position #{end_position} is not an available move.")
     end
     # validate that 'end_position is within board bounds.'
