@@ -55,9 +55,14 @@ class Board
 
     king_position = king.coordinate
     pieces.select { |i| i.color != color }.each do |piece|
+
       return true if piece.available_moves.include?(king_position)
     end
     false
+  end
+
+  def checkmate?(color)
+    return false unless check?(color)
   end
 
   def pieces
@@ -87,5 +92,14 @@ class Board
 
     # update the piece's internal location with end position
     piece.coordinate = end_position
+  end
+
+  def duplicate
+    new_board = Board.new
+    pieces.each do |piece|
+      new_piece = piece.class.new(new_board, piece.color, piece.coordinate)
+      new_board[pieces.coordinate] = new_piece
+    end
+    new_board
   end
 end
