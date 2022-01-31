@@ -24,7 +24,7 @@ class Piece
     moves = []
     available_moves.each do |move|
       new_board = board.duplicate
-      new_board.move_piece(coordinate, move)
+      new_board.move_piece!(coordinate, move)
       moves << move unless new_board.check?(color)
     end
     moves
