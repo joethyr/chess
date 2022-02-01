@@ -21,6 +21,11 @@ ruby lib/main.rb
 * Starting top to bottom, each row is numbered [0-7].
 * Starting left to right, each column is numbered [0-7]
 * When prompted to move a chess piece, target a piece on any square by entering in the coordinates as so: (_row_, _column_) (omit parenthesis)
+```
+It's color black's turn.
+Enter a piece to move:
+> 1, 1
+```
 
 ## Sources
 
