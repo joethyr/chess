@@ -8,13 +8,6 @@ The final project on the Ruby Programming section of The Odin Project consists o
 
 ## Getting Started
 
-### Dependencies
-
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
-
-## Getting Started
-
 ### Executing program
 
 * Access program folder through the command line
@@ -22,6 +15,12 @@ The final project on the Ruby Programming section of The Odin Project consists o
 ```
 ruby lib/main.rb
 ```
+### How to Play
+
+* A chessboard is made up of 64 squares placed in eight rows and eight columns.
+* Starting top to bottom, each row is numbered [0-7].
+* Starting left to right, each column is numbered [0-7]
+* When prompted to move a chess piece, target a piece on any square by entering in the coordinates as so: (_row_, _column_) (omit parenthesis)
 
 ## Sources
 
